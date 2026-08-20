@@ -1,0 +1,8 @@
+{
+    "name": "tarumt/event-ticketing",
+    "description": "TAR UMT Event Booking and Ticketing Platform",
+    "require": {
+        "php": ">=8.1",
+        "aws/aws-sdk-php": "^3.0"
+    }
+}

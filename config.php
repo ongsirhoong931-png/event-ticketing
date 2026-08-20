@@ -31,6 +31,11 @@ if (is_readable($envFile)) {
     }
 }
 
+require_once __DIR__ . '/vendor/autoload.php';
+
+use Aws\SecretsManager\SecretsManagerClient;
+use Aws\Exception\AwsException;
+
 // Use legacy-style error reporting: mysqli functions return false on
 // failure (e.g. a foreign-key violation) instead of throwing an exception,
 // so ordinary "if (!$stmt->execute())" checks work as expected below.
@@ -69,6 +74,8 @@ $host   = getenv('DB_HOST') ?: 'localhost';
 $user   = getenv('DB_USER') ?: 'root';
 $pass   = getenv('DB_PASS') ?: '';
 $dbname = getenv('DB_NAME') ?: 'event_ticketing_db';
+
+
 
 // @-suppressed: even with MYSQLI_REPORT_OFF (no exception), a failed
 // connection still emits a PHP-level warning straight into the response
